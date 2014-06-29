@@ -37,11 +37,9 @@ public class VersionIgnore_oldProtocol
 			@Override
 			public void onPacketReceiving(PacketEvent event)
 			{	
-				viLogger.logDebug("onPacketReceiving called from HANDSHAKE");
-				
 				if (event.getPacketID() == Packets.Client.HANDSHAKE)
 				{
-					viLogger.logDebug("Recieved a handshake packet from an UNKNOWN client");
+					viLogger.logDebug("Recieved a handshake packet.");
 					
 					PacketContainer packet = event.getPacket();
 		         
@@ -49,11 +47,10 @@ public class VersionIgnore_oldProtocol
 					username = packet.getStrings().read(0);
 					
 					viLogger.logDebug("Read packet, username = " + username);
-					
-					//if(getConfig().getInt("server-protocol") == MCProtocol)
+
 					if(viCfg.getServerProtocol() == MCProtocol)
 					{
-						viLogger.logDebug(username + " has sent correct MCProtocol version, stopped process!");
+						viLogger.logDebug("Client protocol equals to server protocol, manipulation not required, skipping.");
 						return;
 					}
 					
@@ -133,9 +130,7 @@ public class VersionIgnore_oldProtocol
 			
 			@Override
 			public void onPacketReceiving(PacketEvent event)
-			{
-				viLogger.logDebug("onPacketReceiving called from GET_INFO packet");
-				
+			{	
 				try
 				{
 					PacketContainer packet = event.getPacket();
@@ -151,8 +146,6 @@ public class VersionIgnore_oldProtocol
 			
 			public void onPacketSending(PacketEvent event)
 			{
-				viLogger.logDebug("onPacketSending called from KICK_DISCONNECT packet");
-				
 				try
 				{
 					PacketContainer packet = event.getPacket();

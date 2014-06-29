@@ -1,9 +1,13 @@
 package net.edencampo.vignore;
 
+import java.io.IOException;
+
 import net.edencampo.vignore.protocols.VersionIgnore_newestProtocol;
 import net.edencampo.vignore.protocols.VersionIgnore_oldProtocol;
+import net.edencampo.vignore.util.Metrics;
 import net.edencampo.vignore.util.VersionIgnore_Configreader;
 import net.edencampo.vignore.util.VersionIgnore_Logger;
+import net.edencampo.vignore.util.VersionIgnore_Updater;
 
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -59,6 +63,19 @@ public class VersionIgnore extends JavaPlugin implements Listener
 	
 	public void onEnable()
 	{
+		new VersionIgnore_Updater(this, 81924, getFile(), VersionIgnore_Updater.UpdateType.DEFAULT, true);
+		
+		Metrics metrics;
+		try
+		{
+			metrics = new Metrics(this);
+			metrics.start();
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
+		
 		saveDefaultConfig();
 		saveConfig();
 		reloadConfig();
