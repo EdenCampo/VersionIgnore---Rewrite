@@ -1,0 +1,11 @@
+name: VersionIgnore
+main: net.edencampo.vignore.VersionIgnore
+version: 1.0.0
+author: Eden.Campo
+depend: [ProtocolLib]
+
+commands:
+  serverprotocol:
+      description: Changes the server's protocol
+      usage: /<command> <protocol-number>
+      aliases: [sp, protocol, proto]
