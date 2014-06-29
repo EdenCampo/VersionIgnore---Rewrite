@@ -1,8 +1,0 @@
-autoConfigureProto: true
-protocolMethod: newest
-server-protocol: 5
-log-client-protocols: true
-enable-serverList-fix: true
-serverList-fix-ping-message: default
-oldVersion-ghost: false
-logDebug: false
