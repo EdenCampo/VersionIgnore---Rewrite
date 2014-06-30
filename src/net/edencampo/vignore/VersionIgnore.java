@@ -63,6 +63,7 @@ public class VersionIgnore extends JavaPlugin implements Listener
 	
 	public void onEnable()
 	{
+		if(viCfg.autoUpdate())
 		new VersionIgnore_Updater(this, 81924, getFile(), VersionIgnore_Updater.UpdateType.DEFAULT, true);
 		
 		Metrics metrics;

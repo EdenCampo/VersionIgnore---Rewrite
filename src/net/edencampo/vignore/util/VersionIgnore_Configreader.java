@@ -36,7 +36,6 @@ public class VersionIgnore_Configreader
 		return Boolean.valueOf(plugin.getConfig().getString("enable-serverList-fix"));
 	}
 	
-	
 	public String getServerlistName()
 	{
 		if(plugin.getConfig().getString("serverList-fix-ping-message").equalsIgnoreCase("default"))
@@ -57,14 +56,8 @@ public class VersionIgnore_Configreader
 		return Boolean.valueOf(plugin.getConfig().getString("logDebug"));
 	}
 	
-	
-	/*
-	 * server-protocol: 5
-		log-client-protocols: true
-		enable-serverList-fix: true
-		serverList-fix-ping-message: default
-		oldVersion-ghost: false
-		logDebug: true
-	 */
-	
+	public boolean autoUpdate()
+	{
+		return Boolean.valueOf(plugin.getConfig().getString("autoUpdate"));
+	}
 }

@@ -4,3 +4,4 @@ server-protocol: 5
 enable-serverList-fix: true
 serverList-fix-ping-message: default
 logDebug: false
+autoUpdate: true
